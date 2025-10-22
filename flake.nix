@@ -14,7 +14,7 @@
 
     {
       nixosConfigurations = {
-        default = nixosSystem {
+        SILDE = nixosSystem {
           inherit system;
           modules = [
             ./configuration.nix
