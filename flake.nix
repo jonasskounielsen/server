@@ -6,7 +6,7 @@
   };
 
   outputs =
-    { self, nixpkgs }:
+    inputs@{ self, nixpkgs }:
     let
       system = "x86_64-linux";
       nixosSystem = nixpkgs.lib.nixosSystem;
