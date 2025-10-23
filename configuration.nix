@@ -140,7 +140,10 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 2307 ];
+  networking.firewall.allowedTCPPorts = [
+    2307
+    47819
+  ];
   networking.firewall.allowedUDPPorts = [ ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
