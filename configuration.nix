@@ -76,6 +76,7 @@
     ];
     packages = with pkgs; [
       distrobox
+      protonvpn-gui
       waypipe
     ];
   };
