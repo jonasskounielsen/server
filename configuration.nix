@@ -62,6 +62,7 @@
 
   virtualisation = {
     docker = {
+      # For distrobox.
       enable = true;
     };
   };
@@ -94,6 +95,15 @@
   programs = {
     git = {
       enable = true;
+    };
+    seahorse = {
+      # gnome-keyring dependency.
+      enable = true;
+    };
+    gnome = {
+      gnome-keyring = {
+        enable = true;
+      };
     };
   };
 
