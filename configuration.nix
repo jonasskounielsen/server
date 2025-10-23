@@ -100,11 +100,6 @@
       # gnome-keyring dependency.
       enable = true;
     };
-    gnome = {
-      gnome-keyring = {
-        enable = true;
-      };
-    };
   };
 
   # List packages installed in system profile.
@@ -117,6 +112,11 @@
   services = {
     fail2ban = {
       enable = true;
+    };
+    gnome = {
+      gnome-keyring = {
+        enable = true;
+      };
     };
     openssh = {
       enable = true;
