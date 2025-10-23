@@ -122,7 +122,6 @@
     };
     openssh = {
       enable = true;
-      X11Forwarding = true;
       ports = [
         2307
         47819
@@ -130,6 +129,7 @@
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
+        X11Forwarding = true;
       };
     };
     xserver = {
