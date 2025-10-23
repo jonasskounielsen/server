@@ -87,7 +87,6 @@
     packages = with pkgs; [
       distrobox
       mesa
-      protonvpn-gui
       waypipe
     ];
   };
@@ -106,6 +105,8 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     neovim
+    wireguard-tools
+    protonvpn-gui
   ];
 
   # Enable the OpenSSH daemon.
