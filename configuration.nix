@@ -29,7 +29,7 @@
       enable = true;
       plugins = with pkgs; [
         networkmanager-openvpn
-        networkmanager-wireguard
+        # networkmanager-wireguard
       ];
     };
   };
