@@ -24,6 +24,9 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking = {
+    firewall = {
+      checkReversePath = false;
+    };
     hostName = "SILDE";
     networkmanager = {
       enable = true;
