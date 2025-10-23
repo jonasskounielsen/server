@@ -105,8 +105,9 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     neovim
-    wireguard-tools
+    wireguard-tools # Dependency for protonvpn-gui.
     protonvpn-gui
+    gtk4 # Dependency for protonvpn-gui.
   ];
 
   # Enable the OpenSSH daemon.
