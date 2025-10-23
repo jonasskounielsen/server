@@ -101,6 +101,10 @@
       PermitRootLogin = "no";
       PasswordAuthentication = false;
     };
+    xserver = {
+      videoDrivers = [
+        "mesa"
+    ];
   };
   services.fail2ban.enable = true;
 
