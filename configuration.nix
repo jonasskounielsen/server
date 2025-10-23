@@ -108,7 +108,6 @@
     neovim
     wireguard-tools # Dependency for protonvpn-gui.
     protonvpn-gui
-    gtk4 # Dependency for protonvpn-gui.
   ];
 
   # Enable the OpenSSH daemon.
@@ -123,6 +122,7 @@
     };
     openssh = {
       enable = true;
+      X11Forwarding = true;
       ports = [
         2307
         47819
