@@ -78,6 +78,7 @@
     extraGroups = [
       "wheel"
       "docker"
+      "networkmanager"
     ]; # Enable ‘sudo’ for the user.
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxchZyMW1kAGCvKFYHMLYzmrDg3zDy/aCVY91/k/Ydx silde" # Jonathan
