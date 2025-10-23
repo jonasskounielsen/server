@@ -94,12 +94,16 @@
   ];
 
   # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    ports = [ 2307 ];
-    settings = {
-      PermitRootLogin = "no";
-      PasswordAuthentication = false;
+  services = {
+    fail2ban = {
+      enable = true;
+    openssh = {
+      enable = true;
+      ports = [ 2307 ];
+      settings = {
+        PermitRootLogin = "no";
+        PasswordAuthentication = false;
+      };
     };
     xserver = {
       videoDrivers = [
@@ -107,7 +111,6 @@
       ];
     };
   };
-  services.fail2ban.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 2307 ];
