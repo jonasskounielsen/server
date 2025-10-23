@@ -108,6 +108,8 @@
     neovim
     wireguard-tools # Dependency for protonvpn-gui.
     protonvpn-gui
+    xorg.xauth
+    xorg.xinit
   ];
 
   # Enable the OpenSSH daemon.
