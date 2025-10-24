@@ -10,6 +10,7 @@
     let
       system = "x86_64-linux";
       nixosSystem = nixpkgs.lib.nixosSystem;
+      pkgs = (import nixpkgs { inherit system; });
     in
 
     {
@@ -21,5 +22,6 @@
           ];
         };
       };
+      packages.${system}.playit = import ./packages/playit/playit-agent.nix { inherit pkgs; };
     };
 }
