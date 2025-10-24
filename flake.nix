@@ -20,6 +20,7 @@
           modules = [
             ./configuration.nix
           ];
+          specialArgs = inputs;
         };
       };
       packages.${system}.playit = import ./packages/playit/playit-agent.nix { inherit pkgs; };
