@@ -64,7 +64,7 @@
       [
       ]
       ++ [
-        packages.${system}.playit-agent
+        self.packages.${system}.playit-agent
       ];
   };
 
