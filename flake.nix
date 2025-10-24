@@ -23,6 +23,6 @@
           specialArgs = inputs;
         };
       };
-      packages.${system}.playit = import ./packages/playit/playit-agent.nix { inherit pkgs; };
+      packages.${system}.playit-agent = import ./packages/playit/playit-agent.nix { inherit pkgs; };
     };
 }
