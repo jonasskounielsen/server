@@ -22,6 +22,6 @@
           ];
         };
       };
-      packages.${system}.playit = import ./packages/playit/playit-agent.nix { inherit pkgs; };
+      packages.${system}.playit = import ./packages/playit/playit-agent.nix { inherit pkgs self; };
     };
 }
