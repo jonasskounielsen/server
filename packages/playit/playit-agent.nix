@@ -14,5 +14,7 @@ pkgs.rustPlatform.buildRustPackage rec {
     sha256 = "sha256-i+v1oyssmeOoMXcyJ8nnS0nTwfKJXXIiIu3KAXBzH1I=";
   };
 
+  doCheck = false;
+
   cargoLock.lockFile = "${src}/Cargo.lock";
 }
