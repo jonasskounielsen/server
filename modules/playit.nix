@@ -8,7 +8,7 @@
 
     wantedBy = [ "multi-user.target" ];
 
-    path = "${pkgs.playtit-agent}/bin/playit-agent";
+    path = "${pkgs.playit-agent}/bin/playit-agent";
 
     script = "playit-cli";
 
