@@ -10,6 +10,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./modules/playit.nix
   ];
 
   boot = {
