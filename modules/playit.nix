@@ -7,6 +7,9 @@
 
     wantedBy = [ "multi-user.target" ];
 
-    script = "playit-cli";
+    script = [
+      "echo $PATH"
+      "playit-cli"
+    ];
   };
 }
