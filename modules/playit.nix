@@ -1,4 +1,7 @@
-{ pkgs, ... }:
+{ self, ... }:
+let
+  system = "x86_64-linux";
+in
 {
   systemd.services.playit = {
     description = "A systemd-service for starting a playit tunnel.";
@@ -8,7 +11,7 @@
 
     wantedBy = [ "multi-user.target" ];
 
-    path = "${pkgs.playit-agent}/bin/playit-agent";
+    path = "${self.packages.${system}.playit-agent}/bin/playit-agent";
 
     script = "playit-cli";
 
