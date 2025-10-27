@@ -11,6 +11,6 @@ in
 
     wantedBy = [ "multi-user.target" ];
 
-    script = "${self.packages.${system}.playit-agent}/bin/playit-agent";
+    script = "${self.packages.${system}.playit-agent}/bin/playit-cli";
   };
 }
