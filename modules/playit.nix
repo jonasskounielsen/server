@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   systemd.services.playit = {
     description = "A systemd-service for starting a playit tunnel.";
@@ -7,8 +8,9 @@
 
     wantedBy = [ "multi-user.target" ];
 
-    script = "echo $PATH";
-    #"playit-cli"
+    path = "${pkgs.playtit-agent}/bin/playit-agent";
+
+    script = "playit-cli";
 
   };
 }
