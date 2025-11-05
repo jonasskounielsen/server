@@ -6,6 +6,7 @@
 pkgs.rustPlatform.buildRustPackage rec {
   pname = "playit-agent";
   version = "0.16.3";
+  meta.mainProgram = "playit-cli";
 
   src = pkgs.fetchFromGitHub {
     owner = "playit-cloud";
