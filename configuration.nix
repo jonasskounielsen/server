@@ -64,8 +64,6 @@
     packages = with pkgs; [
       self.packages.${system}.playit-agent
     ];
-    # ++ [
-    #];
   };
 
   programs = {
