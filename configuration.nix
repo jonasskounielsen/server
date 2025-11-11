@@ -82,6 +82,10 @@
     fail2ban = {
       enable = true;
     };
+    ollama = {
+      enable = true;
+      loadModels = [ "mistral:7b" ];
+    };
     openssh = {
       enable = true;
       ports = [ 2307 ];
