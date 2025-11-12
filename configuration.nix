@@ -90,6 +90,7 @@
       loadModels = [
         "mistral:7b"
         "gemma3:4b"
+        "gemma3:270m"
       ];
     };
     openssh = {
