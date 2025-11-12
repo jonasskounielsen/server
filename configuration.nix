@@ -87,7 +87,10 @@
     };
     ollama = {
       enable = true;
-      loadModels = [ "mistral:7b" ];
+      loadModels = [
+        "mistral:7b"
+        "gemma3:4b"
+      ];
     };
     openssh = {
       enable = true;
