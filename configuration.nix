@@ -11,7 +11,6 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/playit.nix
-    ./systemd/networkmanager.nix
   ];
 
   boot = {
@@ -30,6 +29,11 @@
     hostName = "SILDE";
     networkmanager = {
       enable = true;
+      settings = {
+        connection = {
+          autoconnect = true;
+        };
+      };
     };
   };
 
