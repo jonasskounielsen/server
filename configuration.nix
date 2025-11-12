@@ -11,6 +11,7 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/playit.nix
+    ./systemd/networkmanager.nix
   ];
 
   boot = {
