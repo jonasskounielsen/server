@@ -62,7 +62,6 @@
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBMTandOAfqY3qomHdTmHSgWz7mM2I2X/HaB28Eo7hKj jonathan@laptop" # Jonathan
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHTFWZmBAIjjoTJEpfGoOXkTSDTXBVlOJcnFUjssxDtO router" # Jonathans router
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN4Zqri3qqyHhkboqJefXoW8uDHx55zh4i9k3SYDWx7J jonas@jonas-laptop" # Jonas
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFF/MMrpoPMM2Exj+WazhonE/lTKawPiwc3vJEmXsmH1 SILDE" # Lucas
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkxNYWyd6zpLE/Fms9n16jGqk/8OMKk17ifIHZ/8NmZ SILDE" # Lucas-WSL
