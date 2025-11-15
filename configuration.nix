@@ -65,6 +65,7 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIN4Zqri3qqyHhkboqJefXoW8uDHx55zh4i9k3SYDWx7J jonas@jonas-laptop" # Jonas
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFF/MMrpoPMM2Exj+WazhonE/lTKawPiwc3vJEmXsmH1 SILDE" # Lucas
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkxNYWyd6zpLE/Fms9n16jGqk/8OMKk17ifIHZ/8NmZ SILDE" # Lucas-WSL
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIK1JZCU26uUHHZonQLaz5014ZkkFgT6v3KG+li64H/dg jonathan@ritchie" # Svaerke-Laptop
     ];
     packages = with pkgs; [
       self.packages.${system}.playit-agent
