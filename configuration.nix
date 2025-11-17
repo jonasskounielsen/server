@@ -80,6 +80,10 @@
 
   environment.systemPackages = with pkgs; [
     neovim
+
+    # sops-nix
+    age
+    sops
   ];
 
   services = {
