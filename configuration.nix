@@ -54,9 +54,21 @@
     };
   };
 
+  sops.secrets = {
+    rootPasswordHash = {
+      neededForUsers = true;
+    };
+    SILDEPasswordHash = {
+      neededForUsers = true;
+    };
+  };
+
+  users.users.root.hashedPasswordFile = config.sops.secrets.rootPasswordHash.path;
+
   users.users.SILDE = {
     isNormalUser = true;
     description = "Server I Lokale D2367 er Elendig";
+    hashedPasswordFile = config.sops.secrets.SILDEPasswordHash.path;
     extraGroups = [
       "wheel"
     ];
