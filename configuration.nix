@@ -11,6 +11,8 @@
   imports = [
     ./hardware-configuration.nix
     ./modules/playit.nix
+    ./modules/eduroam.nix
+    ./modules/secrets.nix
   ];
 
   boot = {
