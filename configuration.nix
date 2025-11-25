@@ -40,6 +40,8 @@
     };
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   time.timeZone = "Europe/Copenhagen";
 
   i18n.defaultLocale = "en_US.UTF-8";
