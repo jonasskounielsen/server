@@ -97,8 +97,7 @@
 
   environment.systemPackages = with pkgs; [
     neovim
-
-    # sops-nix
+    wireguard-tools
     age
     sops
   ];
