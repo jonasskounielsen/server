@@ -1,0 +1,3 @@
+{
+  sops.secrets.wireguard-config = { };
+}

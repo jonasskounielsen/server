@@ -13,6 +13,7 @@
     ./modules/playit.nix
     ./modules/eduroam.nix
     ./modules/secrets.nix
+    ./modules/wireguard.nix
     #./modules/minecraft.nix
   ];
 
