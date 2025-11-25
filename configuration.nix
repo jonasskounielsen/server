@@ -112,6 +112,11 @@
     };
     openssh = {
       enable = true;
+      extraConfig = ''
+        ClientAliveInterval 30
+
+        ClientAliveCountMax 3
+      '';
       ports = [ 2307 ];
       settings = {
         PermitRootLogin = "no";
