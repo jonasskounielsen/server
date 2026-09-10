@@ -1,46 +1,47 @@
 { config, ... }:
+
 {
-  sops = {
-    templates."eduroam-certificate" = {
-      content = ''
-        [connection]
-        id=eduroam
-        uuid=be019416-ad4c-4622-9147-8d1d72e724e4
-        type=wifi
-        autoconnect-priority=1
+  sops.secrets = {
+    "eduroam/username" = { };
+    "eduroam/password" = { };
+    "eduroam/certificate" = { };
+  };
 
-        [wifi]
-        mode=infrastructure
-        ssid=eduroam
+  sops.templates."eduroam.nmconnection" = {
+    content = ''
+      [connection]
+      id=eduroam
+      permissions=
+      type=wifi
 
-        [wifi-security]
-        key-mgmt=wpa-eap
+      [wifi]
+      mode=infrastructure
+      ssid=eduroam
 
-        [802-1x]
-        eap=peap;
-        identity=${config.sops.placeholder."eduroam-username"}
-        password=${config.sops.placeholder."eduroam-password"}
-        phase2-auth=mschapv2
+      [wifi-security]
+      key-mgmt=wpa-eap
 
-        [ipv4]
-        method=auto
+      [802-1x]
+      eap=peap
+      ca-cert=${config.sops.secrets."eduroam/certificate".path}
+      identity=${config.sops.placeholder."eduroam/username"}
+      password=${config.sops.placeholder."eduroam/password"}
+      phase2-auth=mschapv2
 
-        [ipv6]
-        addr-gen-mode=privacy
-        method=auto
+      [ipv4]
+      method=auto
 
-        [proxy]
-      '';
-    };
+      [ipv6]
+      addr-gen-mode=privacy
+      method=auto
 
-    secrets = {
-      eduroam-username = { };
-      eduroam-password = { };
-    };
+      [proxy]
+    '';
+    restartUnits = [ "NetworkManager.service" ];
   };
 
   environment.etc."NetworkManager/system-connections/eduroam.nmconnection" = {
-    source = config.sops.templates."eduroam-certificate".path;
+    source = config.sops.templates."eduroam.nmconnection".path;
     mode = "0600";
   };
 }

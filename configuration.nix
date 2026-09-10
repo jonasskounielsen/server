@@ -1,9 +1,8 @@
 {
   config,
-  lib,
-  self,
   pkgs,
-  inputs,
+  ssh_port,
+  lib,
   ...
 }:
 
@@ -13,30 +12,65 @@
     ./modules/eduroam.nix
     ./modules/secrets.nix
     ./modules/wireguard.nix
+    ./modules/holesail.nix
+    ./modules/cloudflared.nix
     #./modules/minecraft.nix
   ];
 
   boot = {
-    loader = {
-      systemd-boot = {
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/lanzaboote/";
+      autoGenerateKeys.enable = true;
+      autoEnrollKeys = {
         enable = true;
+        includeMicrosoftKeys = false;
+        allowBrickingMyMachine = true;
       };
+    };
+    loader = {
+      systemd-boot.enable = lib.mkForce false; # Lanzaboote overwrites this.
       efi = {
         canTouchEfiVariables = true;
       };
     };
     kernelPackages = pkgs.linuxPackages_latest;
+    supportedFilesystems = [ "btrfs" ];
+    initrd = {
+      systemd.enable = true;
+    };
+    tmp.cleanOnBoot = true;
+  };
+
+  system.autoUpgrade = {
+    enable = true;
+    dates = "03:00";
+    runGarbageCollection = true;
+    allowReboot = true;
+    rebootWindow = { lower = "04:00"; upper = "05:00"; };
+    persistent = true;
+    operation = "switch";
+    upgrade = true;
   };
 
   networking = {
-    hostName = "SILDE";
+    hostName = "silde";
     networkmanager = {
       enable = true;
       settings = {
         connection = {
           autoconnect = true;
         };
+        wifi = {
+          cloned-mac-address = "stable";
+          scan-rand-mac-address = "yes";
+        };
       };
+    };
+    firewall = {
+      allowedTCPPorts = [ ssh_port ];
+      allowedUDPPorts = [ ];
+      checkReversePath = false;
     };
   };
 
@@ -51,29 +85,43 @@
   };
 
   nix = {
+    optimise = {
+      automatic = true;
+      dates = "06:00";
+      persistent = true;
+    };
     settings = {
       experimental-features = [
         "nix-command"
         "flakes"
       ];
+
+      substituters = [
+        "https://nix-community.cachix.org"
+        "https://cache.nixos.org/"
+      ];
+      trusted-public-keys = [ 
+        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      ];
     };
   };
 
   sops.secrets = {
-    rootPasswordHash = {
+    root_password_hash = {
       neededForUsers = true;
     };
-    SILDEPasswordHash = {
+    silde_password_hash = {
       neededForUsers = true;
     };
   };
 
-  users.users.root.hashedPasswordFile = config.sops.secrets.rootPasswordHash.path;
+  users.users.root.hashedPasswordFile = config.sops.secrets.root_password_hash.path;
 
-  users.users.SILDE = {
+  users.users.silde = {
     isNormalUser = true;
-    description = "Server I Lokale D2367 er Elendig";
-    hashedPasswordFile = config.sops.secrets.SILDEPasswordHash.path;
+    description = "Serveren I Lokale D2366 er Elendig";
+    hashedPasswordFile = config.sops.secrets.silde_password_hash.path;
     extraGroups = [
       "wheel"
     ];
@@ -105,14 +153,6 @@
     fail2ban = {
       enable = true;
     };
-    ollama = {
-      enable = true;
-      loadModels = [
-        "mistral:7b"
-        "gemma3:4b"
-        "gemma3:270m"
-      ];
-    };
     openssh = {
       enable = true;
       extraConfig = ''
@@ -120,19 +160,20 @@
 
         ClientAliveCountMax 3
       '';
-      ports = [ 2307 ];
+      ports = [ ssh_port ];
       settings = {
         PermitRootLogin = "no";
         PasswordAuthentication = false;
       };
     };
+    fwupd.enable = true;
+
+    btrfs.autoScrub = {
+      enable = true;
+      interval = "monthly";
+      fileSystems = [ "/" ];
+    };
   };
 
-  systemd.services.vpn-port-forward = import ./systemd/vpn-port-forward.nix;
-
-  networking.firewall.allowedTCPPorts = [ 2307 ];
-  networking.firewall.allowedUDPPorts = [ ];
-
   system.stateVersion = "25.05"; # Did you read the comment?
-
 }
