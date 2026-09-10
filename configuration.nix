@@ -128,7 +128,7 @@
     };
   };
 
-  systemd.servuces.vpn-port-forward = import ./systemd/vpn-port-forward.nix;
+  systemd.services.vpn-port-forward = import ./systemd/vpn-port-forward.nix;
 
   networking.firewall.allowedTCPPorts = [ 2307 ];
   networking.firewall.allowedUDPPorts = [ ];
