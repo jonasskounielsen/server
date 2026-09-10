@@ -34,6 +34,5 @@
           specialArgs = inputs;
         };
       };
-      packages.${system}.playit-agent = import ./packages/playit/playit-agent.nix { inherit pkgs; };
     };
 }
