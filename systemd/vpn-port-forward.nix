@@ -1,5 +1,4 @@
 {
-  describtion = "A systemd-service to autostart a port-forward request from a VPN-server.";
   enable = true;
   after = [ "network-online.target"];
 
