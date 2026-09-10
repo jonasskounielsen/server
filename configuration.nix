@@ -126,6 +126,9 @@
         PasswordAuthentication = false;
       };
     };
+    systemd.services = {
+      vpn-port-forward = import ./systemd/vpn-port-forward.nix;
+    };
   };
 
   networking.firewall.allowedTCPPorts = [ 2307 ];
