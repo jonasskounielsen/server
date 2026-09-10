@@ -5,16 +5,15 @@
       content = ''
         [connection]
         id=eduroam
-        uuid=906422a9-468b-4505-8a6d-b42fffcd1141
+        uuid=be019416-ad4c-4622-9147-8d1d72e724e4
         type=wifi
-        interface-name=wlp2s0
+        autoconnect-priority=1
 
         [wifi]
         mode=infrastructure
         ssid=eduroam
 
         [wifi-security]
-        auth-alg=open
         key-mgmt=wpa-eap
 
         [802-1x]
@@ -27,7 +26,7 @@
         method=auto
 
         [ipv6]
-        addr-gen-mode=default
+        addr-gen-mode=privacy
         method=auto
 
         [proxy]
