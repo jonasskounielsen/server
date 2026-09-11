@@ -57,6 +57,7 @@
           specialArgs = {
             inherit inputs;
             ssh_port = 2307;
+            mc_port = 7270;
           };
         };
       };
