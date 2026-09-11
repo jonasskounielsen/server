@@ -20,6 +20,10 @@
       url = "github:nix-community/lanzaboote/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,6 +34,7 @@
       holesail,
       disko,
       lanzaboote,
+      nix-minecraft,
       ...
     }:
     let
@@ -42,10 +47,11 @@
         silde = nixosSystem {
           inherit system;
           modules = [
-            holesail.nixosModules.x86_64-linux.holesail-server
             sops-nix.nixosModules.sops
+            holesail.nixosModules.x86_64-linux.holesail-server
             disko.nixosModules.disko
             lanzaboote.nixosModules.lanzaboote
+            nix-minecraft.nixosModules.minecraft-servers
             ./configuration.nix
           ];
           specialArgs = {
