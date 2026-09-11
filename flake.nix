@@ -51,7 +51,6 @@
           specialArgs = {
             inherit inputs;
             ssh_port = 2307;
-            nvme_id = "2ac9654f-80be-419d-ada1-8da089ff1f94";
           };
         };
       };

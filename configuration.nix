@@ -37,7 +37,9 @@
     kernelPackages = pkgs.linuxPackages_latest;
     supportedFilesystems = [ "btrfs" ];
     initrd = {
-      systemd.enable = true;
+      systemd = {
+        enable = true;
+      };
     };
     tmp.cleanOnBoot = true;
   };

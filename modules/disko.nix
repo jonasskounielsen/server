@@ -1,11 +1,11 @@
-{nvme_id, ...}:
+{...}:
 {
   disko = {
     enableConfig = true;
     devices = {
       disk.nvme = {
         type = "disk";
-        device = "/dev/disk/by-id/${nvme_id}";
+        device = "/dev/disk/by-id/2ac9654f-80be-419d-ada1-8da089ff1f94";
         content = {
           type = "gpt";
           partitions = {
@@ -27,6 +27,7 @@
                 name = "cryptroot";
                 settings = {
                   allowDiscards = true;
+                  crypttabExtraOpts = [ "tpm2-device=auto" ];
                 };
                 content = {
                   type = "btrfs";
