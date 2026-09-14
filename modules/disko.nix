@@ -5,7 +5,7 @@
     devices = {
       disk.nvme = {
         type = "disk";
-        device = "/dev/disk/by-id/2ac9654f-80be-419d-ada1-8da089ff1f94";
+        device = "/dev/disk/by-uuid/2ac9654f-80be-419d-ada1-8da089ff1f94";
         content = {
           type = "gpt";
           partitions = {
