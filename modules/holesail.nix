@@ -23,7 +23,13 @@
       log = false;
     };
   };
-  sops.secrets."holesail/private_key" = { };
-  sops.secrets."holesail/public_key" = { };
+  sops.secrets."holesail/private_key" = { 
+    owner = config.users.users.silde.name;
+    mode = "0400";
+  };
+  sops.secrets."holesail/public_key" = { 
+    owner = config.users.users.silde.name;
+    mode = "0400";
+  };
 }
 
