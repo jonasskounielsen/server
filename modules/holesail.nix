@@ -12,7 +12,6 @@
       group = "wheel";
       log = false;
     };
-  };
     holesail_minecraft = {
       enable = true;
       port = mc_port; # Minecraft server port.
@@ -22,6 +21,7 @@
       user = "silde";
       group = "wheel";
       log = false;
+    };
   };
 }
 
