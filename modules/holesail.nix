@@ -16,12 +16,14 @@
       enable = true;
       port = mc_port; # Minecraft server port.
       implementation = "js";
-      #key-file = config.sops.secrets."holesail/public_key".path;
+      key-file = config.sops.secrets."holesail/public_key".path;
       public = true;
       user = "silde";
       group = "wheel";
       log = false;
     };
   };
+  sops.secrets."holesail/private_key" = { };
+  sops.secrets."holesail/public_key" = { };
 }
 
