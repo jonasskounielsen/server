@@ -14,6 +14,7 @@
     ./modules/wireguard.nix
     ./modules/holesail.nix
     ./modules/cloudflared.nix
+    ./modules/disko.nix
     #./modules/minecraft.nix
   ];
 
