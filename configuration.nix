@@ -47,7 +47,7 @@
   system.autoUpgrade = {
     enable = true;
     dates = "03:00";
-    runGarbageCollection = true;
+    #runGarbageCollection = true;
     allowReboot = true;
     rebootWindow = { lower = "04:00"; upper = "05:00"; };
     persistent = true;
