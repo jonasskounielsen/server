@@ -12,14 +12,14 @@ in
 
   networking.wg-quick.interfaces."wg0" = {
     privateKeyFile = config.sops.secrets."wireguard/private_key".path;
-    address = "10.2.0.2/32";
-    dns = "10.2.0.1";
+    address = [ "10.2.0.2/32" ];
+    dns = [ "10.2.0.1" ];
     autostart = true;
     peers = [ {
         publicKey = "sbjnjFtxUz4dxYfNL7WOVf1StMjjAhkiPLCPtVtlhRI=";
         endpoint = "${vpn_ip}:${vpn_port}";
         persistentKeepalive = 25;
-        allowedIps = [
+        allowedIPs = [
           "0.0.0.0/0"
           "::/0"
         ];
