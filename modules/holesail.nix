@@ -1,4 +1,4 @@
-{ssh_port, mc_port, ...}:
+{config, ssh_port, mc_port, ...}:
 
 {
   services.holesail-server = {
@@ -6,7 +6,7 @@
       enable = true;
       port = ssh_port;
       implementation = "js";
-      # key = ""; set up with sops after first use 
+      key-file = config.sops.secrets."holesail/private_key".path;
       public = false;
       user = "silde";
       group = "wheel";
@@ -16,7 +16,7 @@
       enable = true;
       port = mc_port; # Minecraft server port.
       implementation = "js";
-      # key = ""; set up with sops after first use 
+      key-file = config.sops.secrets."holesail/public_key".path;
       public = true;
       user = "silde";
       group = "wheel";
