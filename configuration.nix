@@ -15,7 +15,8 @@
     ./modules/holesail.nix
     ./modules/cloudflared.nix
     ./modules/disko.nix
-    #./modules/minecraft.nix
+    ./modules/minecraft.nix
+    ./modules/website.nix
   ];
 
   boot = {
@@ -49,7 +50,7 @@
     enable = true;
     dates = "03:00";
     #runGarbageCollection = true;
-    allowReboot = true;
+    allowReboot = false; #temp
     rebootWindow = { lower = "04:00"; upper = "05:00"; };
     persistent = true;
     operation = "switch";
@@ -120,6 +121,8 @@
   };
 
   users.users.root.hashedPasswordFile = config.sops.secrets.root_password_hash.path;
+
+  users.mutableUsers = true;
 
   users.users.silde = {
     isNormalUser = true;
