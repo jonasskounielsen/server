@@ -52,6 +52,7 @@
 	  "Kamma50"
 	  "r3d5o"
 	  "LostXC"
+	  "jvkramer"
 	];
       };
       symlinks = {
