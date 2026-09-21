@@ -32,6 +32,26 @@
       	value = [
 	  "nutr1a"
 	  "jnas4242"
+	  "Bot_Blueberry"
+	  "madskrigeren"
+	  "ufo000"
+	  "amros88"
+	  "KatXC"
+	  "Dupdup01"
+	  "xset_guggi"
+	  "marbrn"
+	  "DamageWasTaken"
+	  "Awj1n"
+	  "maxrumraket"
+	  "_Matio"
+	  "LeFlatfish"
+	  "CarlO_Moystilen"
+	  "Dr_Julo"
+	  "ZnoahO_O"
+	  "Science118"
+	  "Kamma50"
+	  "r3d5o"
+	  "LostXC"
 	];
       };
       symlinks = {
