@@ -8,7 +8,7 @@ let
     name = "natpmp_${name}.service";
     enable = true;
     after = [ "network-online.target" ];
-    requires = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" "port_update_mc.service" ];
     serviceConfig = {
       Type = "simple";
