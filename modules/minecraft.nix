@@ -57,9 +57,9 @@
       };
       symlinks = {
         mods = pkgs.linkFarmFromDrvs "mods" (builtins.attrValues {
-          Fabric-API = pkgs.fetchurl {
-            url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/UWwhUX3k/fabric-api-0.160.0%2B26.2.jar?mr_download_reason=standalone";
-            sha512 = "sha512-Ggi2iywskPYAXvRBq3G2X0ZL6WQAW5wNGOb8bF7FP+NG5912GJxPCa3lnvm8O4NjdqLMcdTObpvkcSJHfRu9Hg==";
+         Fabric-API = pkgs.fetchurl {
+           url = "https://cdn.modrinth.com/data/P7dR8mSH/versions/UWwhUX3k/fabric-api-0.160.0%2B26.2.jar?mr_download_reason=standalone";
+           sha512 = "sha512-Ggi2iywskPYAXvRBq3G2X0ZL6WQAW5wNGOb8bF7FP+NG5912GJxPCa3lnvm8O4NjdqLMcdTObpvkcSJHfRu9Hg==";
          };
          Distant-Horizons = pkgs.fetchurl {
            url = "https://cdn.modrinth.com/data/uCdwusMi/versions/gBf0SaV1/DistantHorizons-3.2.0-b-26.2-fabric-neoforge.jar?mr_download_reason=standalone";
@@ -85,9 +85,6 @@
 	   url = "https://cdn.modrinth.com/data/uXXizFIs/versions/d5ddUdiB/ferritecore-9.0.0-fabric.jar?mr_download_reason=standalone";
 	   sha512 = "sha512-2B+pfhF4TBnUL4nC9DODHQB2A91xk87kX6F35KapxSs4SxmFhuBKD39jzZlv7XEzIleL3pqNtX4RiIVK5cvlhA==";
 	 };
-
-	  #lazydfu - not available for 26.2 yet
-	  #memory leak fix - not available for 26.2 yet
         });
       };
     };
