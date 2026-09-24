@@ -18,7 +18,7 @@
       serverProperties = { # https://minecraft.wiki/w/Server.properties
         server-port = 7270;
         difficulty = "hard";
-        view-distance = 10;
+        view-distance = 32;
         simulation-distance = 10;
         spawn-protection = 0;
         enforce-secure-profile = false;
@@ -27,6 +27,7 @@
         max-players = 35;
         motd = "24htcd";
         pause-when-empty-seconds = 60;
+	level-seed = "85080866";
       };
       files."white-list.txt" = {
       	value = [
@@ -53,6 +54,7 @@
 	  "r3d5o"
 	  "LostXC"
 	  "jvkramer"
+	  "Jame_P_Ness"
 	];
       };
       symlinks = {

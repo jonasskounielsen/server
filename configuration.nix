@@ -49,9 +49,9 @@
   system.autoUpgrade = {
     enable = true;
     dates = "03:00";
-    #runGarbageCollection = true;
-    allowReboot = false; #temp
-    rebootWindow = { lower = "04:00"; upper = "05:00"; };
+    runGarbageCollection = true;
+    allowReboot = true;
+    rebootWindow = { lower = "04:00"; upper = "04:01"; };
     persistent = true;
     operation = "switch";
     upgrade = true;
@@ -89,6 +89,7 @@
   };
 
   nix = {
+    enable = true;
     optimise = {
       automatic = true;
       dates = "06:00";
