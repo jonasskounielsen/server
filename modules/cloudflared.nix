@@ -10,7 +10,6 @@
         default = "http_status:404";
         ingress = {
           "silde.dk" = "http://localhost:80";
-	  "www.silde.dk" = "http://localhost:80";
         };
       };
     };
