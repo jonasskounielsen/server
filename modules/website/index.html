@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+	<head>
+		<title>silde</title>
+		<script>
+			let silde_ip_port=0
+			async function getPort() {
+				silde_ip_port=0;
+				const api_url = "https://silde.dk/api/port";
+				try {
+					const response = await fetch(api_url);
+					if (!response.ok) {
+						throw new Error(`Response status: ${response.status}`);
+					}
+					const result = await response.json();
+					silde_ip_port=result;
+					reloadPortText();
+				} catch (error) {
+					console.log(error.message);
+				}
+			}
+			function reloadPortText() {
+				if (String(silde_ip_port).match(/([0-9]){2,5}/gi) !== null) {
+  					document.getElementById('ipaddr').innerText="silde is active at: ";
+					document.getElementById('ipaddr').innerText+=silde_ip_port;
+				} else {
+					document.getElementById('ipaddr').innerText="Not Active";
+				}
+			}
+			window.onload = (event) => {
+				reloadPortText();
+				getPort();
+				setInterval(getPort,60000);
+			};
+		</script>
+	</head>
+	<body>
+		<p id="ipaddr">Not Active</p>
+	</body>
+</html>
