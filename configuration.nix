@@ -100,7 +100,6 @@
         "nix-command"
         "flakes"
       ];
-
       substituters = [
         "https://nix-community.cachix.org"
         "https://cache.nixos.org/"
@@ -164,7 +163,6 @@
       enable = true;
       extraConfig = ''
         ClientAliveInterval 30
-
         ClientAliveCountMax 3
       '';
       ports = [ ssh_port ];
@@ -179,6 +177,17 @@
       enable = true;
       interval = "monthly";
       fileSystems = [ "/" ];
+    };
+    btrbk.instances."var" = {
+      onCalendar = "daily";
+      settings = {
+        snapshot_preserve_min = "7d";
+	snapshot_preserve = "7d 4w 12m";
+	volume."/" = {
+	  snapshot_dir = "snapshots";
+	  subvolume = "var";
+	};
+      };
     };
   };
 
