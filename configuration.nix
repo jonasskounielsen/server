@@ -122,7 +122,7 @@
 
   users.users.root.hashedPasswordFile = config.sops.secrets.root_password_hash.path;
 
-  users.mutableUsers = true;
+  users.mutableUsers = false; # Ensures sops will declare users.
 
   users.users.silde = {
     isNormalUser = true;
