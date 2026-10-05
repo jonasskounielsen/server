@@ -54,7 +54,7 @@
     rebootWindow = { lower = "04:00"; upper = "04:01"; };
     persistent = true;
     operation = "switch";
-    flake = "/etc/nixos/flake.nix";
+    flake = "/etc/nixos/";
   };
 
   networking = {
